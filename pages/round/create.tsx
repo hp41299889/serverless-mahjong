@@ -12,11 +12,11 @@ import {
 } from "antd/lib";
 import { ItemType } from "antd/lib/breadcrumb/Breadcrumb";
 
-import { DeskType, RoundStatus } from "@/app/api/round/interface";
+import { DeskType, RoundStatus } from "@/pages/api/round/interface";
 import { useAppDispatch } from "@/redux/hook";
 import { fetchCurrentRound } from "@/redux/mahjong";
 import { getAllPlayers, postRound } from "@/util/api";
-import { Player } from "@/app/api/player/interface";
+import { Player } from "@/pages/api/player/interface";
 
 const breadcrumbItems: ItemType[] = [
   {

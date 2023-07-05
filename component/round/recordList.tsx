@@ -1,6 +1,6 @@
 import React from "react";
 import { List, Tag, Divider } from "antd/lib";
-import { EndType, Wind } from "@/app/api/record/interface";
+import { EndType, Wind } from "@/pages/api/record/interface";
 import { AddRecord } from "@/lib/redis/interface";
 
 export const windLabelMap = {
@@ -63,7 +63,7 @@ const RecordList: React.FC<Props> = (props: Props) => {
         {index + 1}
         <Divider type="vertical" />
         <Tag color="blue">
-          {windLabelMap[circle]}風{windLabelMap[dealer]}局
+          {/* {windLabelMap[circle]}風{windLabelMap[dealer]}局 */}
         </Tag>
         <Tag color="purple">連{dealerCount}</Tag>
         {event}
