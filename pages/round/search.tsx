@@ -2,7 +2,7 @@ import { Col, Row, Select, Table, Typography, Tag } from "antd/lib";
 import { ColumnsType } from "antd/lib/table";
 import { getExistDate, getHistoryByDate } from "@/util/api";
 import dayjs from "dayjs";
-import { DeskType } from "@/api/round/interface";
+import { DeskType } from "@/app/api/round/interface";
 import { HistoryRound } from "@/lib/redis/interface";
 import RecordList from "@/component/round/recordList";
 import React, { useEffect, useState } from "react";

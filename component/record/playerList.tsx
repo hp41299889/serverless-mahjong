@@ -3,7 +3,7 @@ import { Typography, Table, Button, Modal } from "antd/lib";
 import { ColumnsType } from "antd/lib/table";
 
 import { CurrentRound } from "@/lib/redis/interface";
-import { Wind } from "@/api/record/interface";
+import { Wind } from "@/app/api/record/interface";
 import { deleteCurrentRound } from "@/util/api";
 import { useAppDispatch } from "@/redux/hook";
 import { fetchCurrentRound } from "@/redux/mahjong";

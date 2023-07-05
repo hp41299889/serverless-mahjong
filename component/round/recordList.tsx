@@ -1,6 +1,6 @@
 import React from "react";
 import { List, Tag, Divider } from "antd/lib";
-import { EndType, Wind } from "@/api/record/interface";
+import { EndType, Wind } from "@/app/api/record/interface";
 import { AddRecord } from "@/lib/redis/interface";
 
 export const windLabelMap = {

@@ -1,5 +1,5 @@
-import { DeskType } from "@/api/round/interface";
-import { EndType } from "@/api/record/interface";
+import { DeskType } from "@/pages/api/round/interface";
+import { EndType } from "@/pages/api/record/interface";
 
 export interface PostPlayer {
   name: string;

@@ -25,8 +25,8 @@ import DrawForm from "@/component/record/drawForm";
 import FakeForm from "@/component/record/fakeForm";
 import PlayerList from "@/component/record/playerList";
 import RecordList from "@/component/round/recordList";
-import { EndType } from "@/api/record/interface";
-import { RoundStatus } from "@/api/round/interface";
+import { EndType } from "@/app/api/record/interface";
+import { RoundStatus } from "@/app/api/round/interface";
 import { windLabelMap } from "@/component/round/recordList";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { fetchCurrentRound, selectCurrentRound } from "@/redux/mahjong";
@@ -166,7 +166,7 @@ const Record: React.FC = () => {
       <List.Item style={{ display: "flex", justifyContent: "flex-start" }}>
         <Divider type="vertical" />
         <Tag color="blue">
-          {windLabelMap[circle]}風{windLabelMap[dealer]}局
+          {/* {windLabelMap[circle]}風{windLabelMap[dealer]}局 */}
         </Tag>
         <Tag color="purple">連{dealerCount}</Tag>
         {event}
@@ -283,7 +283,7 @@ const Record: React.FC = () => {
         </Col>
         <Col className="info" span={18}>
           <Text className="title" style={{ fontSize: "24px" }}>
-            {`${windLabelMap[circle]}風${windLabelMap[dealer]}局`}
+            {/* {`${windLabelMap[circle]}風${windLabelMap[dealer]}局`} */}
           </Text>
           <Divider type="vertical" />
           <Space>
