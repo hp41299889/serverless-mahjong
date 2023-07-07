@@ -1,5 +1,5 @@
-import { DeskType, Round, RoundStatus } from "@/api/round/interface";
-import { Wind, EndType } from "@/api/record/interface";
+import { DeskType, Round, RoundStatus } from "@/pages/api/round/interface";
+import { Wind, EndType } from "@/pages/api/record/interface";
 
 export interface CurrentRound {
   status: RoundStatus;
