@@ -1,19 +1,22 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { playerModel } from "./model";
 import { response } from "@/util/http/response";
+import { getHistory } from "@/job/mahjong/statistics";
 
 export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { method, body } = req;
     switch (method) {
       case "GET": {
-        const players = await playerModel.readAll();
-        return response(res, 200, "success", "read players success", players);
-      }
-      case "POST": {
-        const player = await playerModel.createOne(body);
-        return response(res, 201, "success", "create player success", player);
+        const history = await getHistory();
+        const dates = history ? Object.keys(history) : [];
+        return response(
+          res,
+          200,
+          "success",
+          "read history dates success",
+          dates
+        );
       }
     }
   } catch (err) {

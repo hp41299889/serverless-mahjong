@@ -3,7 +3,7 @@ import { DeskType, Round } from "@/pages/api/round/interface";
 
 export interface CurrentRound {
   status: string;
-  round: Round;
+  round: Round | null;
   records: AddRecord[];
   players: Players;
   circle: Wind;
@@ -47,7 +47,7 @@ export interface Statistics {
   [key: string]: PlayerStatistics;
 }
 
-export interface IHistory {
+export interface History {
   [key: string]: HistoryRound[];
 }
 
@@ -70,11 +70,11 @@ export interface PlayerStatistics {
   name: string;
   createdAt?: Date;
   winds: {
-    [key: string]: WindStatistics;
-    east: WindStatistics;
-    south: WindStatistics;
-    west: WindStatistics;
-    north: WindStatistics;
+    [key: string]: any;
+    east: any;
+    south: any;
+    west: any;
+    north: any;
   };
 }
 

@@ -24,15 +24,15 @@ export interface Round {
   point: number;
 
   //relation
-  east?: Player;
-  south?: Player;
-  west?: Player;
-  north?: Player;
+  east: Player;
+  south: Player;
+  west: Player;
+  north: Player;
   records: Record[];
   // updatedAt: Date;
 }
 
-export interface ICurrentRound {
+export interface CurrentRound {
   roundUid: string;
   deskType: DeskType;
   base: number;
@@ -53,7 +53,7 @@ export interface ICurrentRound {
 }
 
 //service
-export interface IPostOne {
+export interface PostOne {
   deskType: DeskType;
   base: number;
   point: number;
@@ -64,7 +64,7 @@ export interface IPostOne {
 }
 
 //model
-export interface ICreateOneRoundDto {
+export interface CreateOneRoundDto {
   deskType: DeskType;
   base: number;
   point: number;

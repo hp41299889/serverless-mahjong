@@ -3,6 +3,7 @@ import { Breadcrumb, Button, Form, Input, message } from "antd/lib";
 import { ItemType } from "antd/lib/breadcrumb/Breadcrumb";
 
 import { postPlayer } from "@/util/api";
+import Layout from "@/component/layout";
 
 interface FormValue {
   name: string;
@@ -47,7 +48,7 @@ const PlayerCreate: React.FC = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Breadcrumb items={breadcrumbItems} />
       <Form form={form} onFinish={onFormSubmit}>
         <Form.Item label="名稱" name="name">
@@ -68,7 +69,7 @@ const PlayerCreate: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </Layout>
   );
 };
 

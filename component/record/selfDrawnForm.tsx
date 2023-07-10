@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Radio, Button, Input } from "antd/lib";
 
-import { Players } from "@/lib/redis/interface";
+import { Players } from "@/job/mahjong/interface";
 
 interface IProps {
   players: Players;
