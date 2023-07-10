@@ -21,7 +21,7 @@ export const datasource = new DataSource({
   migrationsTableName: "migrations",
   ssl: {
     rejectUnauthorized: true,
-    ca: process.env.POSTGRES_CA,
+    ca: Buffer.from(process.env.POSTGRES_CA!, "base64").toString(),
   },
 });
 
