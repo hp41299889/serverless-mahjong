@@ -97,10 +97,10 @@ export const saveRecords = async (currentRound: CurrentRound) => {
   const { records, round } = currentRound;
   const { east, south, west, north } = round as Round;
   const players = {
-    east: east,
-    south: south,
-    west: west,
-    north: north,
+    east: east as Player,
+    south: south as Player,
+    west: west as Player,
+    north: north as Player,
   };
   const savePromise = records.map(async (record) => {
     const { winner, losers, point, endType, createdAt } = record;
@@ -173,10 +173,10 @@ export const generateCurrentRound = (round: Round) => {
     dealerCount: 0,
     venue: [],
     players: {
-      east: { ...east, ...emptyPlayer },
-      south: { ...south, ...emptyPlayer },
-      west: { ...west, ...emptyPlayer },
-      north: { ...north, ...emptyPlayer },
+      east: { ...(east as Player), ...emptyPlayer },
+      south: { ...(south as Player), ...emptyPlayer },
+      west: { ...(west as Player), ...emptyPlayer },
+      north: { ...(north as Player), ...emptyPlayer },
     },
   };
   return currentRound;
