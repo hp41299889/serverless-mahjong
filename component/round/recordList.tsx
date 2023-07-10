@@ -1,9 +1,9 @@
 import React from "react";
 import { List, Tag, Divider } from "antd/lib";
 import { EndType, Wind } from "@/pages/api/record/interface";
-import { AddRecord } from "@/lib/redis/interface";
+import { AddRecord } from "@/job/mahjong/interface";
 
-export const windLabelMap = {
+export const windLabelMap: any = {
   [Wind.EAST]: "東",
   [Wind.SOUTH]: "南",
   [Wind.WEST]: "西",
@@ -63,7 +63,7 @@ const RecordList: React.FC<Props> = (props: Props) => {
         {index + 1}
         <Divider type="vertical" />
         <Tag color="blue">
-          {/* {windLabelMap[circle]}風{windLabelMap[dealer]}局 */}
+          {windLabelMap[circle]}風{windLabelMap[dealer]}局
         </Tag>
         <Tag color="purple">連{dealerCount}</Tag>
         {event}

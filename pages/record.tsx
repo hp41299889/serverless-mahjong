@@ -36,7 +36,8 @@ import {
   postResetCurrentRound,
   postRecord,
 } from "@/util/api";
-import { AddRecord } from "@/lib/redis/interface";
+import { AddRecord } from "@/job/mahjong/interface";
+import Layout from "@/component/layout";
 
 interface EndTypeOption {
   label: string;
@@ -80,6 +81,7 @@ const Record: React.FC = () => {
 
   const dispatch = useAppDispatch();
   const currentRound = useAppSelector(selectCurrentRound);
+
   const { status, circle, dealer, dealerCount, players, records, venue } =
     currentRound;
 
@@ -112,7 +114,7 @@ const Record: React.FC = () => {
     );
   };
 
-  const renderVenue = venue.map((record, index) => {
+  const renderVenue = venue.map((record: any, index: any) => {
     const { winner } = record;
     return (
       <Tag key={`venueTag_${index}`} color="blue">
@@ -247,8 +249,8 @@ const Record: React.FC = () => {
     }
     if (endType === EndType.SELF_DRAWN) {
       transformedValue.losers = Object.values(players)
-        .filter((player) => player.name !== value.winner)
-        .map((item) => item.name);
+        .filter((player: any) => player.name !== value.winner)
+        .map((item: any) => item.name);
     }
     if (endType === EndType.DRAW) {
       transformedValue.winner = "";
@@ -276,26 +278,35 @@ const Record: React.FC = () => {
   }, [dispatch, router]);
 
   return (
-    <>
+    <Layout>
       <Row className="record">
         <Col span={6}>
           <Breadcrumb items={breadcrumbItems} />
         </Col>
         <Col className="info" span={18}>
           <Text className="title" style={{ fontSize: "24px" }}>
-            {/* {`${windLabelMap[circle]}風${windLabelMap[dealer]}局`} */}
+            {`${windLabelMap[circle]}風${windLabelMap[dealer]}局`}
           </Text>
           <Divider type="vertical" />
           <Space>
-            <Text>連莊:{isRoundEmpty(status) ? 0 : dealerCount}</Text>
-            <Text>局數:{isRoundEmpty(status) ? 0 : records.length}</Text>
-            <Text>流局數:{isRoundEmpty(status) ? 0 : players.east.draw}</Text>
+            <Text>
+              連莊:{isRoundEmpty(status as RoundStatus) ? 0 : dealerCount}
+            </Text>
+            <Text>
+              局數:{isRoundEmpty(status as RoundStatus) ? 0 : records.length}
+            </Text>
+            <Text>
+              流局數:
+              {isRoundEmpty(status as RoundStatus) ? 0 : players.east.draw}
+            </Text>
           </Space>
         </Col>
 
         <Col span={24}>繳東:{renderVenue}</Col>
 
-        <Col span={24}>{!isRoundEmpty(status) && renderPlayerList}</Col>
+        <Col span={24}>
+          {!isRoundEmpty(status as RoundStatus) && renderPlayerList}
+        </Col>
       </Row>
 
       {status === RoundStatus.IN_PROGRESS && (
@@ -363,7 +374,7 @@ const Record: React.FC = () => {
         )}
       </Space>
       <RecordList records={records} />
-    </>
+    </Layout>
   );
 };
 

@@ -32,28 +32,8 @@ export interface Round {
   // updatedAt: Date;
 }
 
-export interface ICurrentRound {
-  roundUid: string;
-  deskType: DeskType;
-  base: number;
-  point: number;
-  players: {
-    [key: string]: Player;
-    east: Player;
-    south: Player;
-    west: Player;
-    north: Player;
-  };
-  circle: Wind;
-  dealer: Wind;
-  dealerCount: number;
-  recordCount: number;
-  drawCount: number;
-  fakeCount: number;
-}
-
 //service
-export interface IPostOne {
+export interface PostOne {
   deskType: DeskType;
   base: number;
   point: number;
@@ -64,7 +44,7 @@ export interface IPostOne {
 }
 
 //model
-export interface ICreateOneRoundDto {
+export interface CreateOneRoundDto {
   deskType: DeskType;
   base: number;
   point: number;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Typography, Table, Button, Modal } from "antd/lib";
 import { ColumnsType } from "antd/lib/table";
 
-import { CurrentRound } from "@/lib/redis/interface";
+import { CurrentRound } from "@/job/mahjong/interface";
 import { Wind } from "@/pages/api/record/interface";
 import { deleteCurrentRound } from "@/util/api";
 import { useAppDispatch } from "@/redux/hook";

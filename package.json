@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "next-typeorm": "npx ts-node -P tsconfig.yarn.json ./node_modules/typeorm/cli.js",
+    "migrate:g": "yarn next-typeorm migration:generate ./database/migrations/migration -d database/postgres.ts",
+    "migrate:r": "yarn next-typeorm migration:run -d database/postgres.ts"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.11.0",
@@ -23,15 +26,17 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "dayjs": "^1.11.9",
+    "dotenv": "^16.3.1",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
     "next": "13.4.8",
     "next-redux-wrapper": "^8.1.0",
+    "pg": "^8.11.1",
     "postcss": "8.4.24",
-    "prisma": "^4.16.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.1.1",
+    "redis": "^4.6.7",
     "tailwindcss": "3.3.2",
     "typeorm": "^0.3.17",
     "typescript": "5.1.6"

@@ -34,7 +34,7 @@ export interface Record {
 //service
 
 //model
-export interface ICreateOneRecordDto {
+export interface CreateOneRecordDto {
   winner: Player;
   losers: Player[];
   endType: EndType;

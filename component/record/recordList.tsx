@@ -1,9 +1,9 @@
 import React from "react";
 import { List, Tag, Divider } from "antd/lib";
 
-import { EndType } from "@/api/record/interface";
+import { EndType } from "@/pages/api/record/interface";
 import { windLabelMap } from "../round/recordList";
-import { AddRecord } from "@/lib/redis/interface";
+import { AddRecord } from "@/job/mahjong/interface";
 
 interface IProps {
   recordsListDatas?: JSX.Element[];

@@ -3,9 +3,10 @@ import { ColumnsType } from "antd/lib/table";
 import { getExistDate, getHistoryByDate } from "@/util/api";
 import dayjs from "dayjs";
 import { DeskType } from "@/pages/api/round/interface";
-import { HistoryRound } from "@/lib/redis/interface";
+import { HistoryRound } from "@/job/mahjong/interface";
 import RecordList from "@/component/round/recordList";
 import React, { useEffect, useState } from "react";
+import Layout from "@/component/layout";
 
 const { Text } = Typography;
 
@@ -203,46 +204,48 @@ const RoundSearch: React.FC = () => {
   }, []);
 
   return (
-    <Row>
-      <Col span={24}>
-        <Select
-          options={dateOptions}
-          placeholder="選擇日期"
-          onChange={onDateChange}
-          style={{
-            width: "100%",
-          }}
-        />
-      </Col>
+    <Layout>
+      <Row>
+        <Col span={24}>
+          <Select
+            options={dateOptions}
+            placeholder="選擇日期"
+            onChange={onDateChange}
+            style={{
+              width: "100%",
+            }}
+          />
+        </Col>
 
-      <Col span={24}>
-        <Select
-          options={historyRoundOptions}
-          placeholder="選擇將"
-          onChange={onRoundChange}
-          style={{
-            width: "100%",
-          }}
-        />
-      </Col>
+        <Col span={24}>
+          <Select
+            options={historyRoundOptions}
+            placeholder="選擇將"
+            onChange={onRoundChange}
+            style={{
+              width: "100%",
+            }}
+          />
+        </Col>
 
-      {selectedRound.uid && (
-        <>
-          <Col span={24}>繳東:{renderVenue}</Col>
-          <Col span={24}>
-            <Table
-              columns={columns}
-              dataSource={data}
-              pagination={false}
-              rowKey={(row) => `roundSearch_row_${row.uKey}`}
-            />
-          </Col>
-          <Col span={24}>
-            <RecordList records={records} />
-          </Col>
-        </>
-      )}
-    </Row>
+        {selectedRound.uid && (
+          <>
+            <Col span={24}>繳東:{renderVenue}</Col>
+            <Col span={24}>
+              <Table
+                columns={columns}
+                dataSource={data}
+                pagination={false}
+                rowKey={(row) => `roundSearch_row_${row.uKey}`}
+              />
+            </Col>
+            <Col span={24}>
+              <RecordList records={records} />
+            </Col>
+          </>
+        )}
+      </Row>
+    </Layout>
   );
 };
 

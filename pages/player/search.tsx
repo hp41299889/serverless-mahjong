@@ -3,8 +3,9 @@ import { Col, Form, Row, Select, Switch, Table } from "antd/lib";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { fetchStatistics, selectStatistics } from "@/redux/mahjong";
 import { ColumnsType } from "antd/lib/table";
-import { PlayerStatistics } from "@/lib/redis/interface";
+import { PlayerStatistics, WindStatistics } from "@/job/mahjong/interface";
 import { percent } from "@/util/math";
+import Layout from "@/component/layout";
 
 interface IColumn {
   key: string;
@@ -192,25 +193,27 @@ const PlayerSearch: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <Row>
-      <Col span={24}>
-        <Form>
-          <Form.Item label="搜尋玩家" name="name">
-            <Select showSearch onChange={onChange} options={selectOptions} />
-          </Form.Item>
-        </Form>
-      </Col>
-      {playerStatistics.name && (
+    <Layout>
+      <Row>
         <Col span={24}>
-          <Table
-            columns={columns}
-            dataSource={datas}
-            size="small"
-            pagination={false}
-          />
+          <Form>
+            <Form.Item label="搜尋玩家" name="name">
+              <Select showSearch onChange={onChange} options={selectOptions} />
+            </Form.Item>
+          </Form>
         </Col>
-      )}
-    </Row>
+        {playerStatistics.name && (
+          <Col span={24}>
+            <Table
+              columns={columns}
+              dataSource={datas}
+              size="small"
+              pagination={false}
+            />
+          </Col>
+        )}
+      </Row>
+    </Layout>
   );
 };
 

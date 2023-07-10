@@ -4,7 +4,7 @@ import {
   Button,
   Form,
   Input,
-  Layout,
+  Layout as ALayout,
   Row,
   Col,
   Select,
@@ -17,6 +17,7 @@ import { useAppDispatch } from "@/redux/hook";
 import { fetchCurrentRound } from "@/redux/mahjong";
 import { getAllPlayers, postRound } from "@/util/api";
 import { Player } from "@/pages/api/player/interface";
+import Layout from "@/component/layout";
 
 const breadcrumbItems: ItemType[] = [
   {
@@ -127,71 +128,79 @@ const Round: React.FC = () => {
 
   return (
     <Layout>
-      <Breadcrumb items={breadcrumbItems} />
-      <Form
-        form={form}
-        onFinish={onSubmit}
-        onFieldsChange={onCheckForm}
-        initialValues={{
-          base: 100,
-          point: 20,
-          deskType: DeskType.AUTO,
-        }}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Row>
-          <Col span={8}>
-            <Form.Item label="底" name="base">
-              <Input />
-            </Form.Item>
-          </Col>
-          <Col span={8}>
-            <Form.Item label="台" name="point">
-              <Input />
-            </Form.Item>
-          </Col>
-          <Col span={8}>
-            <Form.Item label="桌子" name="deskType">
-              <Select options={deskTypeOption} />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Row>
-          <Col span={6}>
-            <Form.Item label="東" name="east">
-              <Select options={playerSelectOptions} onChange={onEastChange} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="南" name="south">
-              <Select options={playerSelectOptions} onChange={onSouthChange} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="西" name="west">
-              <Select options={playerSelectOptions} onChange={onWestChange} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="北" name="north">
-              <Select options={playerSelectOptions} onChange={onNorthChange} />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Form.Item
+      <ALayout>
+        <Breadcrumb items={breadcrumbItems} />
+        <Form
+          form={form}
+          onFinish={onSubmit}
+          onFieldsChange={onCheckForm}
+          initialValues={{
+            base: 100,
+            point: 20,
+            deskType: DeskType.AUTO,
+          }}
           style={{
             display: "flex",
-            justifyContent: "end",
+            flexDirection: "column",
           }}
         >
-          <Button htmlType="submit" type="primary" disabled={submitDisabled}>
-            送出
-          </Button>
-        </Form.Item>
-      </Form>
+          <Row>
+            <Col span={8}>
+              <Form.Item label="底" name="base">
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item label="台" name="point">
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item label="桌子" name="deskType">
+                <Select options={deskTypeOption} />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={6}>
+              <Form.Item label="東" name="east">
+                <Select options={playerSelectOptions} onChange={onEastChange} />
+              </Form.Item>
+            </Col>
+            <Col span={6}>
+              <Form.Item label="南" name="south">
+                <Select
+                  options={playerSelectOptions}
+                  onChange={onSouthChange}
+                />
+              </Form.Item>
+            </Col>
+            <Col span={6}>
+              <Form.Item label="西" name="west">
+                <Select options={playerSelectOptions} onChange={onWestChange} />
+              </Form.Item>
+            </Col>
+            <Col span={6}>
+              <Form.Item label="北" name="north">
+                <Select
+                  options={playerSelectOptions}
+                  onChange={onNorthChange}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Form.Item
+            style={{
+              display: "flex",
+              justifyContent: "end",
+            }}
+          >
+            <Button htmlType="submit" type="primary" disabled={submitDisabled}>
+              送出
+            </Button>
+          </Form.Item>
+        </Form>
+      </ALayout>
     </Layout>
   );
 };

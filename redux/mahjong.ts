@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { getPlayerStatistics, getCurrentRound } from "@/util/api";
-import { CurrentRound, Statistics } from "@/lib/redis/interface";
+import { Statistics, CurrentRound } from "@/job/mahjong/interface";
 import { DeskType, RoundStatus } from "@/pages/api/round/interface";
 import { Wind } from "@/pages/api/record/interface";
 

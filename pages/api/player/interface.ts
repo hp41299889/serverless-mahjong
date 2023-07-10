@@ -15,6 +15,6 @@ export interface Player {
 }
 
 //model
-export interface ICreateOnePlayerDto {
+export interface CreateOnePlayerDto {
   name: string;
 }
