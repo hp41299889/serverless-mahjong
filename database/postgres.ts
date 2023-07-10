@@ -1,5 +1,4 @@
 import { DataSource } from "typeorm";
-import { readFileSync } from "fs";
 import "dotenv/config";
 
 import { player } from "../pages/api/player/entity";
@@ -12,17 +11,17 @@ let postgres: DataSource | null;
 
 export const datasource = new DataSource({
   type: "postgres",
-  host: "huihui-mahjong-hp4129889-1258.aivencloud.com",
-  port: 17088,
-  username: "avnadmin",
-  password: "AVNS_MeeGIX13bRcLbqOXog4",
-  database: "defaultdb",
+  host: process.env.POSTGRES_HOST,
+  port: Number(process.env.POSTGRES_PORT),
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DATABASE,
   entities: entities,
   migrations: [Migration1688955623174],
   migrationsTableName: "migrations",
   ssl: {
     rejectUnauthorized: true,
-    ca: readFileSync("./asset/ca.pem").toString(),
+    ca: process.env.POSTGRES_CA,
   },
 });
 
