@@ -289,15 +289,24 @@ const Record: React.FC = () => {
           </Text>
           <Divider type="vertical" />
           <Space>
-            <Text>連莊:{isRoundEmpty(status) ? 0 : dealerCount}</Text>
-            <Text>局數:{isRoundEmpty(status) ? 0 : records.length}</Text>
-            <Text>流局數:{isRoundEmpty(status) ? 0 : players.east.draw}</Text>
+            <Text>
+              連莊:{isRoundEmpty(status as RoundStatus) ? 0 : dealerCount}
+            </Text>
+            <Text>
+              局數:{isRoundEmpty(status as RoundStatus) ? 0 : records.length}
+            </Text>
+            <Text>
+              流局數:
+              {isRoundEmpty(status as RoundStatus) ? 0 : players.east.draw}
+            </Text>
           </Space>
         </Col>
 
         <Col span={24}>繳東:{renderVenue}</Col>
 
-        <Col span={24}>{!isRoundEmpty(status) && renderPlayerList}</Col>
+        <Col span={24}>
+          {!isRoundEmpty(status as RoundStatus) && renderPlayerList}
+        </Col>
       </Row>
 
       {status === RoundStatus.IN_PROGRESS && (

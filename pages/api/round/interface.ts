@@ -24,10 +24,10 @@ export interface Round {
   point: number;
 
   //relation
-  east: Player;
-  south: Player;
-  west: Player;
-  north: Player;
+  east?: Player;
+  south?: Player;
+  west?: Player;
+  north?: Player;
   records: Record[];
   // updatedAt: Date;
 }
