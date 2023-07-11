@@ -14,19 +14,3 @@ export const checkRedis = async () => {
     await initCurrentRound();
   }
 };
-
-export const getRedis = async () => {
-  if (!redisClient) {
-    await initStatistics();
-    await initCurrentRound();
-  }
-  return redisClient;
-};
-
-export const redisConnect = async () => {
-  await redisClient.connect();
-};
-
-export const redisDisConnect = async () => {
-  await redisClient.disconnect();
-};

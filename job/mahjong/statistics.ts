@@ -81,7 +81,7 @@ export const updateStatistics = async (
     statistics = {};
   }
 
-  Object.keys(players).forEach((wind) => {
+  Object.keys(players).forEach(async (wind) => {
     const player = players[wind];
     const { id, name, win, lose, selfDrawn, beSelfDrawn, draw, fake, amount } =
       player;
@@ -139,7 +139,7 @@ export const updateStatistics = async (
       };
     }
 
-    statistics[name].winds[wind] = updateOrCreateWindStatistics(
+    statistics[name].winds[wind] = await updateOrCreateWindStatistics(
       statistics[name].winds[wind],
       records.length,
       {
