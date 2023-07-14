@@ -18,7 +18,6 @@ import {
 } from "antd/lib";
 import { ItemType } from "antd/lib/breadcrumb/Breadcrumb";
 
-import "./record.css";
 import WinningForm from "@/component/record/winningForm";
 import SelfDrawnForm from "@/component/record/selfDrawnForm";
 import DrawForm from "@/component/record/drawForm";
